@@ -47,7 +47,7 @@ def evaluate(model_path, images_dir, output_dir):
         boxes, labels, scores = result['boxes'], result['labels'], result['scores']  # unpack results
 
         # filter results
-        indices = scores > 0.7
+        indices = scores > 0.5
         boxes = boxes[indices]
         labels = labels[indices]
         scores = scores[indices]
@@ -60,6 +60,6 @@ def evaluate(model_path, images_dir, output_dir):
 
 if __name__ == '__main__':
     model_path = 'models/mobilenetv3_ssd.model'
-    images_dir = 'demo'
+    images_dir = 'datasets/val2017'
 
     evaluate(model_path, images_dir, 'output')
